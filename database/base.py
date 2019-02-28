@@ -39,7 +39,7 @@ f_sza.close()
 j_sha = json.loads(d_sha)
 j_sza = json.loads(d_sha)
 
-f = open('list.csv','w',encoding='utf-8')
+f = open('base.csv','w',encoding='utf-8')
 
 # 给csv文件写入表头
 f.write(','.join(j_sha['column']) + '\n')
