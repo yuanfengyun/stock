@@ -1,6 +1,10 @@
 雪球 
 
+基本信息 https://stock.xueqiu.com/v5/stock/f10/cn/company.json?symbol=SH600031
+
 基本信息 https://xueqiu.com/stock/f10/compinfo.json?symbol=SZ000501 
+
+数据概要 https://stock.xueqiu.com/v5/stock/realtime/quotec.json?symbol=SH600031&_=1551762831191
 
 利润表 https://xueqiu.com/stock/f10/incstatement.json?symbol=SZ000501 
 
