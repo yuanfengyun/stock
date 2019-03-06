@@ -1,6 +1,4 @@
-# 股票数据库：将股票数据整理到mysql数据库中，方便sql查询选股。
-
-数据包含信息:
+# 股票数据库：
 
 * base 股票基本信息(市盈率、是否国企、行业、主营业务、省份)
 
@@ -16,7 +14,7 @@
 
 ## sql语句选股
 
-查询所有低价国企股
+1. 查询所有低价国企股
 
 ```sql
 select avg(percent) from base where orgtype like '%国资%' and cur_price < 3.0 order by cur_price;
