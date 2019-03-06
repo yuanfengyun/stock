@@ -19,6 +19,19 @@
 ```sql
 select avg(percent) from base where orgtype like '%国资%' and cur_price < 3.0 order by cur_price;
 ```
+
+2. 查询猪相关股票
+
+```sql
+select * from base where majorbiz like '%猪%' or bizscope like '%猪%';
+```
+
+3. 查询白酒类今日平均涨幅
+
+```
+select avg(percent) from base where majorbiz like '%白酒%' or bizscope like '%白酒%';
+```
+
 # 波段操作股概览
 
 ### 粤传媒
