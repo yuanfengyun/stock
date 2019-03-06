@@ -35,7 +35,7 @@ def get_info(id):
     ]
     index = int(id[2:])
     index = (index % 20) + 1
-    print(index)
+    print(id,index)
     for v in l:
         values = []
         for field in fields:
