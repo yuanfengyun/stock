@@ -48,9 +48,9 @@ select avg(percent) from base where majorbiz like '%白酒%' or bizscope like '%
 
 重大事件：粤传媒由于收购案被立案调查，二审中
 
-进货价 4.00
+进货价 5.40
 
-出货价 5.00
+出货价 6.00
 
 ### 六国化工
 
@@ -62,7 +62,7 @@ select avg(percent) from base where majorbiz like '%白酒%' or bizscope like '%
 
 重大事件：2018巨额亏损
 
-进货价 4.00
+进货价 4.10
 
 出货价 4.50
 
@@ -78,9 +78,9 @@ select avg(percent) from base where majorbiz like '%白酒%' or bizscope like '%
 
 核心题材：超市
 
-进货价: 2.80
+进货价: 3.20
 
-出货价：3.50
+出货价：4.00
 
 ### 招商银行
 
