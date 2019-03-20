@@ -17,3 +17,6 @@
 分红 https://xueqiu.com/stock/f10/bonus.json?symbol=SZ000501&size=10000&page=1
 
 行业 https://xueqiu.com/industry/quote_order.json?page=1&size=10000&order=desc&exchange=CN&orderBy=percent&level2code=J68
+
+主力资金流入情况
+http://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/MoneyFlow.ssl_qsfx_zjlrqs?page=1&num=2&sort=opendate&asc=0&daima=sh600776

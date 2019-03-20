@@ -9,31 +9,28 @@ db = pymysql.connect("127.0.0.1","root","yungege_test","stock" )
 cursor = db.cursor()
 
 def get_info(id):
-    url = "https://xueqiu.com/stock/forchartk/stocklist.json?period=1&type=normal&symbol="+id
-    r = requests.get(url,headers=headers)
-    data = r.json()
-    l = data['chartlist']
+    url = "http://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/MoneyFlow.ssl_qsfx_zjlrqs?page=1&num=30&sort=opendate&asc=0&daima="+id
+    r = requests.get(url)
+    s = r.text
     fields = [
-        "volume",
-        "open",
-        "high",
-        "close",        
-        "low",          
-        "chg",          
-        "percent",      
-        "turnrate",     
-        "ma5",
-        "ma10",
-        "ma20",         
-        "ma30",         
-        "dif",
-        "dea",          
-        "macd",         
-        "lot_volume",   
+        "opendate",
+        "trade",
+        "changeratio",
+        "turnover",
+        "netamount",
+        "ratioamount",
+        "r0_net",
+        "r0_ratio",
+        "r0x_ratio",
+        "cnt_r0x_ratio",
+        "cate_ra",
+        "cate_na"
     ]
-    index = int(id[2:])
-    index = (index % 20) + 1
-    print(id,index)
+    s = s.replace("cnt_r0x_ratio","aabbccdd")
+    for f in fields:
+        s = s.replace(f,"\""+f+"\"")
+    s = s.replace("aabbccdd","\"cnt_r0x_ratio\"")
+    l = json.loads(s)
     for v in l:
         values = []
         for field in fields:
@@ -43,8 +40,7 @@ def get_info(id):
             if value is None:
                 value = 0
             values.append(value)
-        timestamp = v['timestamp']
-        sql = "insert into daily_history_%d(id,%s,timestamp) values('%s',%s,'%s');" % (index,','.join(fields),id,','.join(str(i) for i in values),timestamp)
+        sql = "insert into zhuli(id,%s) values('%s',%s);" % (','.join(fields),id,','.join("'"+str(i)+"'" for i in values))
         try:
             cursor.execute(sql)
         except BaseException as e:
@@ -59,7 +55,6 @@ with open('list.csv','r',encoding='utf-8') as csvfile:
             continue
         id = v[0]
         get_info(id)
-
 db.commit()
 db.close()
 
