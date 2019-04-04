@@ -54,7 +54,11 @@ with open('list.csv','r',encoding='utf-8') as csvfile:
             title = False
             continue
         id = v[0]
-        get_info(id)
+        try:
+            get_info(id)
+        except BaseException as e:
+            print(id,e)
+            traceback.print_exc()
 db.commit()
 db.close()
 
