@@ -41,16 +41,15 @@ def load():
 def filter(l,from_date,to_date,names):
     ret = {}
     for item in l:
-        #if item["date"] < from_date or item["date"] > to_date:
-        #    continue
+
         if item["name"] not in names:
             continue
         if item["date"][4:]=="0229":
             continue
 
+
         year = 2019 + int(item["date"][2:4]) - int(item["name"][2:4])
         x=datetime.date(year,int(item["date"][4:6]),int(item["date"][6:]))
-        print(x,item["name"][-4:-2], item["date"][2:4])
         y = item["avg"]
         if item["name"] not in ret:
             records = {"x":[x],"y":[y]}

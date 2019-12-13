@@ -2,6 +2,8 @@
 
 
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+from matplotlib.pyplot import MultipleLocator
 import numpy
 import data
 import datetime
@@ -35,6 +37,15 @@ def main():
     datas = data.load()
     m = data.filter(datas,"160110","171110",name_list)
 
+    ax = plt.gca()
+    #指定X轴的以日期格式（带小时）显示
+    ax.xaxis.set_major_formatter(mdates.DateFormatter('%m-%d'))
+    #X轴的间隔为小时
+    ax.xaxis.set_major_locator(mdates.MonthLocator())
+    
+    y_major_locator=MultipleLocator(100)
+    ax.yaxis.set_major_locator(y_major_locator)
+
     diff_l = []
     for pair in l:
         diff_x = []
@@ -53,17 +64,17 @@ def main():
 
         diff_l.append([pair[2],diff_x,diff_y])
         
-    plt.xlabel("date")
+    plt.xlabel("jd price diff " + month1 + " " + month2)
     plt.ylabel("")
     ls = []
     labels = []
     for i,v in enumerate(diff_l):
         print(v[1])
-        plt.plot(v[1],v[2],color=cs[i][1],linestyle='--',linewidth = 2,label=v[0])
+        plt.plot(v[1],v[2],color=cs[i][1],linestyle='-',linewidth = 1,label=v[0])
         labels.append(v[0])
     
     plt.legend(labels = labels,loc = 'best',shadow = True)
-    plt.gcf().autofmt_xdate()
+    plt.grid(axis="y",linestyle="--")
     plt.show()
 
 main()
