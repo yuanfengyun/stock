@@ -22,17 +22,17 @@ def main():
     
     ax = plt.gca()
     #指定X轴的以日期格式（带小时）显示
-    ax.xaxis.set_major_formatter(mdates.DateFormatter('%y%m'))
+    ax.xaxis.set_major_formatter(mdates.DateFormatter('%m'))
     #X轴的间隔为天
     ax.xaxis.set_major_locator(mdates.MonthLocator())
     
-    y_major_locator=MultipleLocator(100)
+    y_major_locator=MultipleLocator(200)
     ax.yaxis.set_major_locator(y_major_locator)
 
     date_2_price = {}
 
     for c in cs:
-        v = egg_price.getYearData(c)
+        v = egg_price.getYearData(c,True)
         plt.plot(v[0],v[1],color=cs[c],linestyle='-',linewidth = 1,label=c)
 
     plt.legend(labels = ls,loc = 'best',shadow = True)

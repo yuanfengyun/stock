@@ -6,24 +6,13 @@ import numpy
 import data
 import egg_price
 def main():
-    year = input("please input year: ");
     cs = {
-        "jd" + year + "01":"blue",
-#        "jd" + year + "02":"green",
-#        "jd" + year + "03":"pink",
-#        "jd" + year + "04":"brown",
-        "jd" + year + "05":"green",
-#        "jd" + year + "06":"indigo",
-#        "jd" + year + "07":"plum",
-#        "jd" + year + "08":"purple",
-        "jd" + year + "09":"red",
-#        "jd" + year + "10":"magenta",
-#        "jd" + year + "11":"gray",
-#        "jd" + year + "12":"teal"
+        "01":"blue",
+        "05":"green",
+        "09":"red",
     }
     datas = data.load()
     m = data.filter(datas,cs)
-    plt.xlabel("jd20"+year)
     plt.ylabel("")
     ls = []
     
