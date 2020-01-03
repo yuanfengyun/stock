@@ -1,9 +1,15 @@
 # -*- coding: UTF-8 -*-
+
+import os
+import sys
+current_dir = os.path.abspath(os.path.dirname(__file__))
+sys.path.append(current_dir+'/..')
+
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from matplotlib.pyplot import MultipleLocator
 import numpy
-import data
+from data import contract
 import egg_price
 def main():
     year = input("please input year: ");
@@ -21,15 +27,15 @@ def main():
 #        "jd" + year + "11":"gray",
 #        "jd" + year + "12":"teal"
     }
-    datas = data.load()
-    m = data.filter(datas,cs)
+    datas = contract.load()
+    m = contract.filter(datas,cs,False)
     plt.xlabel("jd20"+year)
     plt.ylabel("")
     ls = []
     
     ax = plt.gca()
     #指定X轴的以日期格式（带小时）显示
-    ax.xaxis.set_major_formatter(mdates.DateFormatter('%y%m'))
+    ax.xaxis.set_major_formatter(mdates.DateFormatter('%y-%m'))
     #X轴的间隔为天
     ax.xaxis.set_major_locator(mdates.MonthLocator())
     

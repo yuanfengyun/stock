@@ -1,11 +1,14 @@
 # -*- coding: UTF-8 -*-
-
+import os
+import sys
+current_dir = os.path.abspath(os.path.dirname(__file__))
+sys.path.append(current_dir+'/..')
 
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from matplotlib.pyplot import MultipleLocator
 import numpy
-import data
+from data import contract
 
 def main():
     month = input("please input month 01 ~ 12:  ");
@@ -15,10 +18,11 @@ def main():
         "jd16"+month:"green",
         "jd17"+month:"brown",
         "jd18"+month:"blue",
-        "jd19"+month:"red"
+        "jd19"+month:"red",
+        "jd20"+month:"black"
     }
-    datas = data.load()
-    m = data.filter(datas,"160110","171110",cs)
+    datas = contract.load()
+    m = contract.filter(datas,cs,True)
     plt.xlabel("jdxx"+month)
     plt.ylabel("")
     ls = []

@@ -1,18 +1,21 @@
 # -*- coding: UTF-8 -*-
+
+import os
+import sys
+current_dir = os.path.abspath(os.path.dirname(__file__))
+sys.path.append(current_dir+'/..')
+
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from matplotlib.pyplot import MultipleLocator
 import numpy
-import data
+from data import contract
 import egg_price
 def main():
-    cs = {
-        "01":"blue",
-        "05":"green",
-        "09":"red",
-    }
-    datas = data.load()
-    m = data.filter(datas,cs)
+    cs = {"01":"red","05":"green","09":"blue"}
+
+    datas = contract.load()
+    m = contract.filter_month(datas,cs)
     plt.ylabel("")
     ls = []
     
@@ -21,7 +24,7 @@ def main():
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%y%m'))
     #X轴的间隔为天
     ax.xaxis.set_major_locator(mdates.MonthLocator())
-    
+
     y_major_locator=MultipleLocator(200)
     ax.yaxis.set_major_locator(y_major_locator)
 
@@ -32,7 +35,7 @@ def main():
             continue
         d = m[c]
         ls.append(c)
-        plt.plot(d["x"],d["y"],color=cs[c],linestyle='-',linewidth = 1,label=c)
+        plt.plot(d["x"],d["y"],color=cs[c],linestyle='-',linewidth = 1,label="c")
         
         for i in d["x"]:
             if i in egg_price.date2price:
@@ -42,6 +45,7 @@ def main():
     prices = []
     for k in dates:
         prices.append(date_2_price[k])
+
     ls.append("price")
     plt.plot(dates,prices,color="black",linestyle='-',linewidth = 1,label="price")
 

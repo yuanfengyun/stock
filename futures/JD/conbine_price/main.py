@@ -32,7 +32,7 @@ def main():
     date_2_price = {}
 
     for c in cs:
-        v = egg_price.getYearData(c,False)
+        v = egg_price.getYearData(c,False,False)
         ls.append(c)
         plt.plot(v[0],v[1],color=cs[c],linestyle='-',linewidth = 1,label=c)
 

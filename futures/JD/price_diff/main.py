@@ -1,11 +1,14 @@
 # -*- coding: UTF-8 -*-
-
+import os
+import sys
+current_dir = os.path.abspath(os.path.dirname(__file__))
+sys.path.append(current_dir+'/..')
 
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from matplotlib.pyplot import MultipleLocator
 import numpy
-import data
+from data import contract
 import datetime
 
 def main():
@@ -18,7 +21,8 @@ def main():
         ["jd16","green"],
         ["jd17","brown"],
         ["jd18","blue"],
-        ["jd19","red"]
+        ["jd19","red"],
+        ["jd20","black"]
     ]
 
     l = []
@@ -34,8 +38,8 @@ def main():
         name_list.append(a)
         name_list.append(b)
     
-    datas = data.load()
-    m = data.filter(datas,"160110","171110",name_list)
+    datas = contract.load()
+    m = contract.filter1(datas,name_list,False)
 
     ax = plt.gca()
     #指定X轴的以日期格式（带小时）显示
@@ -59,6 +63,7 @@ def main():
             if date not in mb:
                 continue
             diff_y.append(v - mb[date])
+            print(2019 + date.year - year,date.month,date.day)
             diff_x.append(datetime.date(2019 + date.year - year,date.month,date.day))
                 
 
@@ -69,7 +74,6 @@ def main():
     ls = []
     labels = []
     for i,v in enumerate(diff_l):
-        print(v[1])
         plt.plot(v[1],v[2],color=cs[i][1],linestyle='-',linewidth = 1,label=v[0])
         labels.append(v[0])
     
