@@ -14,8 +14,8 @@ import egg_price
 def main():
     year = input("please input year: ");
     cs = {
-        "jd" + year + "01":"blue",
-#        "jd" + year + "02":"green",
+#        "jd" + year + "01":"blue",
+        "jd" + year + "02":"pink",
 #        "jd" + year + "03":"pink",
 #        "jd" + year + "04":"brown",
         "jd" + year + "05":"green",
@@ -35,7 +35,7 @@ def main():
     
     ax = plt.gca()
     #指定X轴的以日期格式（带小时）显示
-    ax.xaxis.set_major_formatter(mdates.DateFormatter('%y-%m'))
+    ax.xaxis.set_major_formatter(mdates.DateFormatter('%m-%d'))
     #X轴的间隔为天
     ax.xaxis.set_major_locator(mdates.MonthLocator())
     

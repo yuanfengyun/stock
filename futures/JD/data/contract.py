@@ -44,7 +44,7 @@ def filter(l,names,same_year):
             if same_year:
                 year = 2019 + int(date[0]) - int(item["name"][2:4])
             x=datetime.date(year,int(date[1]),int(date[2]))
-            y = item["low"]
+            y = item["high"]
             if item["name"] not in ret:
                 records = {"x":[x],"y":[y]}
                 ret[item["name"]] = records
@@ -69,7 +69,7 @@ def filter1(l,names,same_year):
             if same_year:
                 year = 2019 + int(date[0][2:4]) - int(item["name"][2:4])
             x=datetime.date(year,int(date[1]),int(date[2]))
-            y = item["low"]
+            y = item["high"]
             if item["name"] not in ret:
                 records = {x:y}
                 ret[item["name"]] = records
@@ -92,7 +92,7 @@ def filter_month(l,months):
                 continue
             year = int(date[0])
             x=datetime.date(year,int(date[1]),int(date[2]))
-            y = item["low"]
+            y = item["high"]
             if month not in ret:
                 records = {x:y}
                 ret[month] = records
@@ -115,7 +115,7 @@ def filter_month(l,months):
                 continue
             year = int(date[0])
             x=datetime.date(year,int(date[1]),int(date[2]))
-            y = item["low"]
+            y = item["high"]
             if month not in ret:
                 records = {"x":[x],"y":[y]}
                 ret[month] = records
