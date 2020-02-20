@@ -3,6 +3,8 @@ import csv
 import datetime
 import os
 
+ppp = "low"
+
 # "合约","日期","前收盘价","前结算价","开盘价","最高价","最低价","收盘价","结算价","成交量","持仓量"
 
 def load():
@@ -20,7 +22,7 @@ def load():
             if first:
                 first = False
                 continue
-            l.append({
+            ii = {
                 "name":str(item[-10:-4]).lower(),
                 "date":str(line[0]),
                 "open":int(float(line[1])),
@@ -28,7 +30,10 @@ def load():
                 "low":int(float(line[3])),
                 "close":int(float(line[4])),
                 "cloumn":int(float(line[5]))
-            })
+            }
+            if ii["close"] == 0:
+                ii["close"] = ii["low"]
+            l.append(ii)
     return l
 
 def filter(l,names,same_year):
@@ -44,7 +49,7 @@ def filter(l,names,same_year):
             if same_year:
                 year = 2019 + int(date[0]) - int(item["name"][2:4])
             x=datetime.date(year,int(date[1]),int(date[2]))
-            y = item["high"]
+            y = item[ppp]
             if item["name"] not in ret:
                 records = {"x":[x],"y":[y]}
                 ret[item["name"]] = records
@@ -69,7 +74,7 @@ def filter1(l,names,same_year):
             if same_year:
                 year = 2019 + int(date[0][2:4]) - int(item["name"][2:4])
             x=datetime.date(year,int(date[1]),int(date[2]))
-            y = item["high"]
+            y = item[ppp]
             if item["name"] not in ret:
                 records = {x:y}
                 ret[item["name"]] = records
@@ -92,7 +97,7 @@ def filter_month(l,months):
                 continue
             year = int(date[0])
             x=datetime.date(year,int(date[1]),int(date[2]))
-            y = item["high"]
+            y = item[ppp]
             if month not in ret:
                 records = {x:y}
                 ret[month] = records
@@ -115,7 +120,7 @@ def filter_month(l,months):
                 continue
             year = int(date[0])
             x=datetime.date(year,int(date[1]),int(date[2]))
-            y = item["high"]
+            y = item[ppp]
             if month not in ret:
                 records = {"x":[x],"y":[y]}
                 ret[month] = records

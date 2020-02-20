@@ -19,7 +19,8 @@ def main():
         "jd17"+month:"brown",
         "jd18"+month:"blue",
         "jd19"+month:"red",
-        "jd20"+month:"black"
+        "jd20"+month:"black",
+		"jd21"+month:"orange"
     }
     datas = contract.load()
     m = contract.filter(datas,cs,True)

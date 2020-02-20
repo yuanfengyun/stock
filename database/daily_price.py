@@ -8,7 +8,7 @@ from dongfang import headers
 
 url = "http://nufm.dfcfw.com/EM_Finance2014NumericApplication/JS.aspx?cb=jQuery112407468156378518487_1554296869371&type=CT&token=4f1862fc3b5e77c150a2b985b12db0fd&sty=FCOIATC&js=(%7Bdata%3A%5B(x)%5D%2CrecordsFiltered%3A(tot)%7D)&cmd=C._A&st=(ChangePercent)&sr=-1&p=1&ps=5000&_=1554296869372"
 
-db = pymysql.connect("127.0.0.1","root","yungege_test","stock" )
+db = pymysql.connect("120.79.91.100","root","yungege_test","stock" )
 cursor = db.cursor()
 
 r = requests.get(url,headers=headers)
@@ -26,12 +26,14 @@ for v in l:
     percent = values[4]
     ttm = values[15]
     pb = values[16]
+    market_capital = values[17]
+    float_market_capital = values[18]
     id = values[1]
     if int(id) < 600000:
         id = "SZ" + id
     else:
         id = "SH" + id
-    sql = "update base set cur_price=%s, percent = %s, ttm=%s, pb=%s where id='%s'" % (cur_price,percent,ttm,pb,id)
+    sql = "update base set cur_price=%s, percent = %s, ttm=%s, pb=%s,market_capital=%s, float_market_capital=%s  where id='%s'" % (cur_price,percent,ttm,pb,id,market_capital,float_market_capital)
     try:
         cursor.execute(sql)
     except BaseException as e:

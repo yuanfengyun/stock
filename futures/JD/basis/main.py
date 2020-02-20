@@ -14,18 +14,18 @@ import egg_price
 def main():
     year = input("please input year: ");
     cs = {
-#        "jd" + year + "01":"blue",
+        "jd" + year + "01":"blue",
         "jd" + year + "02":"pink",
-#        "jd" + year + "03":"pink",
-#        "jd" + year + "04":"brown",
+        "jd" + year + "03":"pink",
+        "jd" + year + "04":"brown",
         "jd" + year + "05":"green",
-#        "jd" + year + "06":"indigo",
-#        "jd" + year + "07":"plum",
-#        "jd" + year + "08":"purple",
+        "jd" + year + "06":"indigo",
+        "jd" + year + "07":"plum",
+        "jd" + year + "08":"purple",
         "jd" + year + "09":"red",
-#        "jd" + year + "10":"magenta",
-#        "jd" + year + "11":"gray",
-#        "jd" + year + "12":"teal"
+        "jd" + year + "10":"magenta",
+        "jd" + year + "11":"gray",
+        "jd" + year + "12":"teal"
     }
     datas = contract.load()
     m = contract.filter(datas,cs,False)
@@ -59,8 +59,8 @@ def main():
     prices = []
     for k in dates:
         prices.append(date_2_price[k])
-    ls.append("price")
-    plt.plot(dates,prices,color="black",linestyle='-',linewidth = 1,label="price")
+    ls.append("dayanglu egg price")
+    plt.plot(dates,prices,color="black",linestyle='-',linewidth = 1,label="大洋路价格")
 
     plt.legend(labels = ls,loc = 'best',shadow = True)
     plt.grid(axis="y",linestyle="--")
