@@ -5,17 +5,13 @@ import csv
 current_dir = os.path.abspath(os.path.dirname(__file__))
 sys.path.append(current_dir+'/..')
 
-import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
-from matplotlib.pyplot import MultipleLocator
-import numpy
 from data import contract
 import datetime
 
-cs = ["15","16","18","20","21"]
-cs.append("14")
+cs = ["15","16","18"]
+#cs.append("14")
 #cs.append("17")
-cs.append("19")
+#cs.append("19")
 
 datas = contract.load()
 
