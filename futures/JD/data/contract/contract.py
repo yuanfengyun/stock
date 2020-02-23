@@ -21,7 +21,6 @@ def get_result_page(url):
     respoen = res.read();
 
     result = str(respoen,encoding = "utf-8")
-    print(result)
     js = json.loads(result)
     
     return js
