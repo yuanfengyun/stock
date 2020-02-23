@@ -9,6 +9,8 @@ url = "http://cif.mofcom.gov.cn/cif/seachlineNew.fhtml?commdityid=150010&enterid
 
 m = {"2014":[],"2015":[],"2016":[],"2017":[],"2018":[],"2019":[],"2020":[],"2021":[]}
 
+print("get dayanglu egg price begin...")
+
 requests = requests.get(url)
 s = str(requests.content)
 s = s[s.find("boundaryGap")+41:]

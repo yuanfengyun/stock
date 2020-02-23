@@ -27,7 +27,6 @@ def get_result_page(url):
 
 #获取请求结果
 def get_contract(contract):
-    print(contract)
     url = "http://stock2.finance.sina.com.cn/futures/api/json.php/IndexService.getInnerFuturesDailyKLine?symbol=" + contract
     js = get_result_page(url)
     if js is None:
