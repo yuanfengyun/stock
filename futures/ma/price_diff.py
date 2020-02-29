@@ -5,31 +5,20 @@ from matplotlib.pyplot import MultipleLocator
 import numpy
 import contract
 import datetime
+import config
 
 def main():
     month1 = input("please input month1 01 ~ 12:  ");
     month2 = input("please input month2 01 ~ 12:  ");
 
-    cs = [
-        ["ma14","gray"],
-        ["ma15","pink"],
-        ["ma16","green"],
-        ["ma17","brown"],
-        ["ma18","blue"],
-        ["ma19","red"],
-        ["ma20","black"]
-    ]
-
     l = []
     name_list = []
-    for i, val in enumerate(cs):
-        a = val[0] + month1
-        b = val[0] + month2
+    for (k, v) in config.YearToColor.items():
+        a = config.Name + k + month1
+        b = config.Name + k + month2
         if month2 < month1:
-            if i >= len(cs)-1:
-                continue
-            b = cs[i+1][0]+month2
-        l.append([a,b,a+" - "+b])
+            b = config.Name + config.NextYear(k)+month2
+        l.append([a,b,a+" - "+b,v])
         name_list.append(a)
         name_list.append(b)
     
@@ -42,7 +31,7 @@ def main():
     #X轴的间隔为小时
     ax.xaxis.set_major_locator(mdates.MonthLocator())
     
-    y_major_locator=MultipleLocator(100)
+    y_major_locator=MultipleLocator(config.y_diff_major_locator)
     ax.yaxis.set_major_locator(y_major_locator)
 
     diff_l = []
@@ -62,14 +51,14 @@ def main():
             diff_x.append(datetime.date(2019 + date.year - year,date.month,date.day))
                 
 
-        diff_l.append([pair[2],diff_x,diff_y])
+        diff_l.append([pair[2],diff_x,diff_y,pair[3]])
         
-    plt.xlabel("ma price diff " + month1 + " " + month2)
+    plt.xlabel(config.Name + " price diff " + month1 + " " + month2)
     plt.ylabel("")
     ls = []
     labels = []
     for i,v in enumerate(diff_l):
-        plt.plot(v[1],v[2],color=cs[i][1],linestyle='-',linewidth = 1,label=v[0])
+        plt.plot(v[1],v[2],color=v[3],linestyle='-',linewidth = 1,label=v[0])
         labels.append(v[0])
     
     plt.legend(labels = labels,loc = 'best',shadow = True)

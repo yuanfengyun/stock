@@ -23,7 +23,7 @@ def load():
                 first = False
                 continue
             ii = {
-                "name":str(item[-10:-4]).lower(),
+                "name":str(item[-10:-4]).upper(),
                 "date":str(line[0]),
                 "open":int(float(line[1])),
                 "high":int(float(line[2])),

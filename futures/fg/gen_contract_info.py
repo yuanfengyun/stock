@@ -3,6 +3,7 @@ from urllib import request
 import json
 import os
 import csv
+import config
 
 #获取每一页数据
 def get_result_page(url):
@@ -32,7 +33,7 @@ def get_contract(contract):
     if js is None:
         return
 
-    out = open("./"+contract+".csv",'w+', newline='')
+    out = open("./data/contract/"+contract+".csv",'w+', newline='')
     csv_writer = csv.writer(out, dialect = "excel")
     csv_writer.writerow(["date","open","high","low","close","vol"])
     
@@ -47,7 +48,7 @@ months = ["01","02","03","04","05","06","07","08","09","10","11","12"]
        
 for year in years:
     for month in months:
-        contract = "MA"+str(year)+month
+        contract = config.Name+str(year)+month
         try:
             get_contract(contract)
         except:

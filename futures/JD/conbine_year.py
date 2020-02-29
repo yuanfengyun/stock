@@ -1,27 +1,16 @@
 # -*- coding: UTF-8 -*-
-import os
-import sys
-current_dir = os.path.abspath(os.path.dirname(__file__))
-sys.path.append(current_dir+'/..')
-
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from matplotlib.pyplot import MultipleLocator
-import numpy
-from data import contract
+import contract
+import config
 
 def main():
     month = input("please input month 01 ~ 12:  ");
-    cs = {
-        "jd14"+month:"gray",
-        "jd15"+month:"pink",
-        "jd16"+month:"green",
-        "jd17"+month:"brown",
-        "jd18"+month:"blue",
-        "jd19"+month:"red",
-        "jd20"+month:"black",
-		"jd21"+month:"orange"
-    }
+    cs = {}
+    for (k,v) in config.YearToColor.items():
+        cs[config.Name + k + month] = v
+
     datas = contract.load()
     m = contract.filter(datas,cs,True)
     plt.xlabel("jdxx"+month)

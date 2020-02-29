@@ -5,8 +5,9 @@ import csv
 current_dir = os.path.abspath(os.path.dirname(__file__))
 sys.path.append(current_dir+'/..')
 
-from data import contract
+import contract
 import datetime
+import config
 
 cs = ["15","16","18"]
 #cs.append("14")
@@ -16,7 +17,7 @@ cs.append("19")
 datas = contract.load()
 
 def gen_diff(year,month1,month2):
-    year = "jd"+year
+    year = config.Name+year
     name_list = []
     a = year + month1
     b = year + month2
@@ -44,8 +45,8 @@ def gen_diff(year,month1,month2):
     return (max,min)
 
 def get_cur_diff(a,b):
-    a = "jd"+a
-    b = "jd"+b
+    a = config.Name+a
+    b = config.Name+b
     name_list = [a,b]
     m = contract.filter1(datas,name_list,False)
 

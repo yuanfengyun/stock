@@ -9,22 +9,17 @@ import matplotlib.dates as mdates
 from matplotlib.pyplot import MultipleLocator
 import numpy
 import contract
+import config
 
 def main():
     month = input("please input month 01 ~ 12:  ");
-    cs = {
-        "ma14"+month:"gray",
-        "ma15"+month:"pink",
-        "ma16"+month:"green",
-        "ma17"+month:"brown",
-        "ma18"+month:"blue",
-        "ma19"+month:"red",
-        "ma20"+month:"black",
-		"ma21"+month:"orange"
-    }
+    cs = {}
+    for (k,v) in config.YearToColor.items():
+        cs[config.Name + k + month] = v
+
     datas = contract.load()
     m = contract.filter(datas,cs,True)
-    plt.xlabel("jdxx"+month)
+    plt.xlabel(config.Name+"xx"+month)
     plt.ylabel("")
     ls = []
     
@@ -34,7 +29,7 @@ def main():
     #X轴的间隔为天
     ax.xaxis.set_major_locator(mdates.MonthLocator())
     
-    y_major_locator=MultipleLocator(200)
+    y_major_locator=MultipleLocator(config.y_major_locator)
     ax.yaxis.set_major_locator(y_major_locator)
 
 
