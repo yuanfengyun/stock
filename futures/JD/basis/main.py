@@ -10,19 +10,19 @@ import matplotlib.dates as mdates
 from matplotlib.pyplot import MultipleLocator
 import numpy
 from data import contract
-import egg_price
+from data import price as egg_price
 def main():
     year = input("please input year: ");
     cs = {
         "jd" + year + "01":"blue",
-        "jd" + year + "02":"pink",
-        "jd" + year + "03":"pink",
+#        "jd" + year + "02":"pink",
+#        "jd" + year + "03":"pink",
         "jd" + year + "04":"brown",
         "jd" + year + "05":"green",
-        "jd" + year + "06":"indigo",
+#        "jd" + year + "06":"indigo",
         "jd" + year + "07":"plum",
         "jd" + year + "08":"purple",
-        "jd" + year + "09":"red",
+#        "jd" + year + "09":"red",
         "jd" + year + "10":"magenta",
         "jd" + year + "11":"gray",
         "jd" + year + "12":"teal"

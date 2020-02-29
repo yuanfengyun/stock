@@ -3,7 +3,7 @@ import csv
 import datetime
 import os
 
-ppp = "high"
+ppp = "close"
 
 # "合约","日期","前收盘价","前结算价","开盘价","最高价","最低价","收盘价","结算价","成交量","持仓量"
 
