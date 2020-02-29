@@ -6,10 +6,17 @@ import numpy
 import contract
 import config
 import datetime
+import sys
 
 def main():
-    month1 = input("please input month1 01 ~ 12:  ");
-    month2 = input("please input month2 01 ~ 12:  ");
+    month1 = ""
+    month2 = ""
+    if len(sys.argv) >= 3:
+        month1 = sys.argv[1]
+        month2 = sys.argv[2]
+    else:
+        month1 = input("please input month1 01 ~ 12:  ");
+        month2 = input("please input month2 01 ~ 12:  ");
 
     l = []
     name_list = []
@@ -47,7 +54,6 @@ def main():
             if date not in mb:
                 continue
             diff_y.append(v - mb[date])
-            print(2019 + date.year - year,date.month,date.day)
             diff_x.append(datetime.date(2019 + date.year - year,date.month,date.day))
                 
 

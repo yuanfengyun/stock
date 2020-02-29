@@ -47,7 +47,6 @@ def main():
             if date not in mb:
                 continue
             diff_y.append(v - mb[date])
-            print(2019 + date.year - year,date.month,date.day)
             diff_x.append(datetime.date(2019 + date.year - year,date.month,date.day))
                 
 
