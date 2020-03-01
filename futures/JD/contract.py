@@ -43,7 +43,7 @@ def filter(l,names,same_year):
             if item["name"] not in names:
                 continue
             date = item["date"].split("-")
-            if (date[1]=="2" or date[1]=="02") and date[2]=="29":
+            if (date[1]=="2" or date[1]=="02") and int(date[0])%4!=0 and date[2]=="29":
                 continue
             year = int(date[0])
             if same_year:

@@ -30,8 +30,8 @@ def load():
 def getYearData(year):
     t = {}
     for (k,v) in date_2_price.items():
-        if k.year == 2 and k.day == 29:
-            continue
+        #if k.year == 2 and k.day == 29:
+        #    continue
         if k.year == int(year):
             k = datetime.date(2020,k.month,k.day)
             t[k] = v

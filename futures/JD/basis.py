@@ -5,7 +5,7 @@ from matplotlib.pyplot import MultipleLocator
 import numpy
 import contract
 import config
-from data import price as egg_price
+import egg_price
 def main():
     year = input("please input year: ");
     
@@ -29,7 +29,7 @@ def main():
     ax.yaxis.set_major_locator(y_major_locator)
 
     date_2_price = {}
-
+    egg_price.load()
     for c in cs:
         if c not in m:
             continue
@@ -38,8 +38,10 @@ def main():
         plt.plot(d["x"],d["y"],color=cs[c],linestyle='-',linewidth = 1,label=c)
         
         for i in d["x"]:
-            if i in egg_price.date2price:
-                date_2_price[i] = egg_price.date2price[i] 
+            if i in egg_price.date_2_price:
+                date_2_price[i] = egg_price.date_2_price[i]
+            else:
+                print(i)
     
     dates = sorted(date_2_price)
     prices = []
