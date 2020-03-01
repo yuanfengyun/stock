@@ -1,6 +1,4 @@
 # -*- coding: UTF-8 -*-
-
-
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from matplotlib.pyplot import MultipleLocator
@@ -15,8 +13,9 @@ def main():
         "2017":"plum",
         "2018":"blue",
         "2019":"red",
+        "2020":"black"
     }
-    plt.xlabel("2014-2019")
+    plt.xlabel("2014-2020")
     plt.ylabel("")
     ls = []
     
@@ -31,8 +30,9 @@ def main():
 
     date_2_price = {}
 
+    egg_price.load()
     for c in cs:
-        v = egg_price.getYearData(c,False,False)
+        v = egg_price.getYearData(c)
         ls.append(c)
         plt.plot(v[0],v[1],color=cs[c],linestyle='-',linewidth = 1,label=c)
 

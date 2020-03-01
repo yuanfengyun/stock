@@ -1,22 +1,17 @@
 # -*- coding: UTF-8 -*-
-import os
-import sys
 import csv
-current_dir = os.path.abspath(os.path.dirname(__file__))
-sys.path.append(current_dir+'/..')
-
-from data import contract
+import contract
 import datetime
 
 cs = ["15","16","18"]
-#cs.append("14")
-#cs.append("17")
+cs.append("14")
+cs.append("17")
 cs.append("19")
 
 datas = contract.load()
 
 def gen_diff(year,month1,month2):
-    year = "jd"+year
+    year = "JD"+year
     name_list = []
     a = year + month1
     b = year + month2
@@ -44,8 +39,8 @@ def gen_diff(year,month1,month2):
     return (max,min)
 
 def get_cur_diff(a,b):
-    a = "jd"+a
-    b = "jd"+b
+    a = "JD"+a
+    b = "JD"+b
     name_list = [a,b]
     m = contract.filter1(datas,name_list,False)
 
@@ -101,7 +96,7 @@ def main():
             max_min = t[k]
             max = max_min[0]
             min = max_min[1]
-            if cur_diff > min + (max - min)*0.8:
+            if cur_diff > min + (max - min)*0.2:
                 print(k,"current: ",cur_diff,"\tmax: ",max,"\tmin: ",min)
             if cur_diff < min + (max - min)*0.2:
                 print(k,"current: ",cur_diff,"\tmax: ",max,"\tmin: ",min)
