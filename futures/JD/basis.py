@@ -7,7 +7,7 @@ import contract
 import config
 import egg_price
 def main():
-    year = input("please input year: ");
+    year = "20" #input("please input year: ");
     
     cs = {}
     for (k,v) in config.MonthToColor.items():
@@ -15,6 +15,7 @@ def main():
 
     datas = contract.load()
     m = contract.filter(datas,cs,False)
+    plt.figure(figsize=(20, 10))
     plt.xlabel("jd20"+year)
     plt.ylabel("")
     ls = []
@@ -52,6 +53,6 @@ def main():
 
     plt.legend(labels = ls,loc = 'best',shadow = True)
     plt.grid(axis="y",linestyle="--")
-    plt.show()
-
+#    plt.show()
+    plt.savefig("a.png")
 main()

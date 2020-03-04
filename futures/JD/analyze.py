@@ -96,9 +96,9 @@ def main():
             max_min = t[k]
             max = max_min[0]
             min = max_min[1]
-            if cur_diff > min + (max - min)*0.2:
-                print(k,"current: ",cur_diff,"\tmax: ",max,"\tmin: ",min)
             if cur_diff < min + (max - min)*0.2:
+                print(k,"current: ",cur_diff,"\tmax: ",max,"\tmin: ",min)
+            if cur_diff > max - (max - min)*0.2:
                 print(k,"current: ",cur_diff,"\tmax: ",max,"\tmin: ",min)
             
 
