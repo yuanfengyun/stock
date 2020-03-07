@@ -47,7 +47,7 @@ def gen_pic(year):
     for k in dates:
         prices.append(date_2_price[k])
     ls.append("dayanglu egg price")
-    plt.plot(dates,prices,color="black",linestyle='-',linewidth = 1,label="大洋路价格")
+    plt.plot(dates,prices,color="black",linestyle='-',linewidth = 2,label="大洋路价格")
 
     plt.legend(labels = ls,loc = 'best',shadow = True)
     plt.grid(axis="y",linestyle="--")

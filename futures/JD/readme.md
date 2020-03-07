@@ -7,6 +7,7 @@
 * 鸡蛋市场： 北京大洋路（全国影响力）、东莞信立（广东影响力）、河北决定涨跌风向、东北蛋价全国最低
 * 报价主播： 蛋先生、广州捣蛋哥、老井、日月同辉
 * 历史蛋价： 商务部十年数据 http://cif.mofcom.gov.cn/cif/seachlineNew.fhtml?commdityid=150010&enterid=3681&Bdate=2014-01-01&Edate=2019-12-31
+* 其它农产品价格：http://zdscxx.moa.gov.cn:8080/misportal/public/agricultureIndexRedStyle.jsp
 
 ## 参考系数及建议
 |  合约 |    01 |    02 |    03 |    04 |    05 |    06 |    07 |    08 |    09 |    10 |    11 |    12 |

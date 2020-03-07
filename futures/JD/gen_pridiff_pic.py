@@ -70,13 +70,17 @@ def gen_pic(prefix,month1,month2):
     ls = []
     labels = []
     for i,v in enumerate(diff_l):
-        plt.plot(v[1],v[2],color=cs[i][1],linestyle='-',linewidth = 1,label=v[0])
+        linewidth = 1
+        if v[0][0:4] == "JD20":
+            linewidth = 2
+        plt.plot(v[1],v[2],color=cs[i][1],linestyle='-',linewidth = linewidth,label=v[0])
         labels.append(v[0])
     
     plt.legend(labels = labels,loc = 'best',shadow = True)
     plt.grid(axis="y",linestyle="--")
     plt.savefig("pictures/" +prefix+ "/" +month1+"_" +month2+".png")
     plt.clf()
+    plt.close('all')
 
 def main():
     pairs = {

@@ -32,7 +32,10 @@ def gen_pic(month):
             continue
         d = m[c]
         ls.append(c)
-        plt.plot(d["x"],d["y"],color=cs[c],linestyle='-',linewidth = 1,label=c)
+        linewidth = 1
+        if c[0:4] == "JD20":
+            linewidth = 2
+        plt.plot(d["x"],d["y"],color=cs[c],linestyle='-',linewidth = linewidth,label=c)
     plt.legend(labels = ls,loc = 'best',shadow = True)
     plt.grid(axis="y",linestyle="--")
     plt.savefig("pictures/jdxx0x/"+month+".png")
