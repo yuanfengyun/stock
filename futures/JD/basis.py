@@ -53,6 +53,6 @@ def main():
 
     plt.legend(labels = ls,loc = 'best',shadow = True)
     plt.grid(axis="y",linestyle="--")
-#    plt.show()
-    plt.savefig("a.png")
+    plt.show()
+    #plt.savefig("a.png")
 main()

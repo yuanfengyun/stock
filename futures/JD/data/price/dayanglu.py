@@ -3,9 +3,9 @@ import csv
 import math
 import requests
 
-url = "http://cif.mofcom.gov.cn/cif/seachlineNew.fhtml?commdityid=150010&enterid=3681&Bdate=2014-01-01&Edate=2022-12-31"
+url = "http://cif.mofcom.gov.cn/cif/seachlineNew.fhtml?commdityid=150010&enterid=3681&Bdate=2020-01-01&Edate=2022-12-31"
 
-m = {"2014":[],"2015":[],"2016":[],"2017":[],"2018":[],"2019":[],"2020":[],"2021":[]}
+m = {"2020":[],"2021":[]}
 
 print("get dayanglu egg price begin...")
 
