@@ -8,6 +8,7 @@
 * 报价主播： 蛋先生、广州捣蛋哥、老井、日月同辉
 * 历史蛋价： 商务部十年数据 http://cif.mofcom.gov.cn/cif/seachlineNew.fhtml?commdityid=150010&enterid=3681&Bdate=2014-01-01&Edate=2019-12-31
 * 其它农产品价格：http://zdscxx.moa.gov.cn:8080/misportal/public/agricultureIndexRedStyle.jsp
+* 交流欢迎加我微信 15219500164
 
 ## 鸡蛋期货总结
 * 基本面定方向，严格遵循只做一个方向
