@@ -23,7 +23,7 @@ def gen_pic(month):
     #X轴的间隔为天
     ax.xaxis.set_major_locator(mdates.MonthLocator())
     
-    y_major_locator=MultipleLocator(200)
+    y_major_locator=MultipleLocator(100)
     ax.yaxis.set_major_locator(y_major_locator)
 
 

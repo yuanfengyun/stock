@@ -7,7 +7,7 @@ import contract
 import config
 import egg_price
 def main():
-    year = "20" #input("please input year: ");
+    year = input("please input year: ");
     
     cs = {}
     for (k,v) in config.MonthToColor.items():

@@ -17,12 +17,17 @@ def gen_pic(year):
     plt.xlabel("jd20"+year)
     plt.ylabel("")
     ls = []
-    
+
+    plt.rcParams['ytick.right'] = plt.rcParams['ytick.labelright'] = True
+    plt.rcParams['ytick.left'] = plt.rcParams['ytick.labelleft'] = False
+
     ax = plt.gca()
     #指定X轴的以日期格式（带小时）显示
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%m-%d'))
     #X轴的间隔为天
     ax.xaxis.set_major_locator(mdates.MonthLocator())
+    ax.yaxis.tick_left()
+
     
     y_major_locator=MultipleLocator(200)
     ax.yaxis.set_major_locator(y_major_locator)
