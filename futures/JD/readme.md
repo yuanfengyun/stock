@@ -5,7 +5,7 @@
 * 最高点：中秋，最低点：2，3月或6，7月
 * 淘鸡集中： 春节前、清明-端行、中秋前
 * 鸡蛋市场： 北京大洋路（全国影响力）、东莞信立（广东影响力）、河北决定涨跌风向、东北蛋价全国最低
-* 报价主播： 蛋先生、广州捣蛋哥、老井、日月同辉
+* 报价主播： 蛋先生、广州捣蛋哥、老井(重要反指)、日月同辉
 * 历史蛋价： 商务部十年数据 http://cif.mofcom.gov.cn/cif/seachlineNew.fhtml?commdityid=150010&enterid=3681&Bdate=2014-01-01&Edate=2019-12-31
 * 其它农产品价格：http://zdscxx.moa.gov.cn:8080/misportal/public/agricultureIndexRedStyle.jsp
 * 鸡蛋现货历史数据 2014-2020 http://120.79.91.100/
@@ -111,4 +111,4 @@
 * 7 vs 8 正套，700点以上动手
 
 ## 交流微信群
-<img src="http://120.79.91.100/wx1.jpg"/>
+<img src="http://120.79.91.100/wx.jpg"/>
