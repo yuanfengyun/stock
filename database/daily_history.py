@@ -50,15 +50,10 @@ def get_info(id):
         except BaseException as e:
             print(sql,e)
 
-with open('list.csv','r',encoding='utf-8') as csvfile:
-    read = csv.reader(csvfile)
-    title = True
-    for v in read:
-        if title:
-            title = False
-            continue
-        id = v[0]
-        get_info(id)
+cursor.execute("select id from base;")
+results = cursor.fetchall()
+for row in results:
+    get_info(row[0])
 
 db.commit()
 db.close()
